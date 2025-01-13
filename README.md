@@ -4,6 +4,6 @@ Channabasavanna
 Game of two stacks
 https://www.hackerrank.com/challenges/game-of-two-stacks/submissions/code/417286658
 Queues using two stacks
-https://www.hackerrank.com/challenges/queue-using-two-stacks/problem
+https://www.hackerrank.com/challenges/queue-using-two-stacks/submissions/code/417285991
 Blanced brackets
 https://www.hackerrank.com/challenges/balanced-brackets/submissions/code/417289794
