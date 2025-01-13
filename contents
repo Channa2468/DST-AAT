@@ -1,6 +1,85 @@
 Balanced Brackets
-https://www.hackerrank.com/challenges/balanced-brackets/submissions/code/417289794
+def isBalanced(s):
+    stack = []
+    bracket_map = {')': '(',']': '[', '}': '{'}
+    for char in s:
+        if char in bracket_map:
+            top_element = stack.pop() if stack else '#'
+            if bracket_map[char] != top_element:
+                return "NO"
+        else:
+            stack.append(char)
+    
+    return "YES" if not stack else "NO"
+n = int(input())
+for _ in range(n):
+    s = input()
+    print(isBalanced(s))
+
+
+
 Queue using Two Stacks
-https://www.hackerrank.com/challenges/queue-using-two-stacks/submissions/code/417285991
+
+class QueueUsingStacks:
+    def __init__(self):
+        self.stack1 = []
+        self.stack2 = []
+
+    def enqueue(self, x):
+        self.stack1.append(x)
+    def dequeue(self):
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2.pop() if self.stack2 else None
+    def front(self):
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2[-1] if self.stack2 else None
+
+q = int(input())
+queue = QueueUsingStacks()
+
+for _ in range(q):
+    query = input().strip().split()
+    query_type = int(query[0])
+    
+    if query_type == 1:
+        x = int(query[1])
+        queue.enqueue(x)
+    elif query_type == 2:
+        queue.dequeue()
+    elif query_type == 3:
+        print(queue.front())
+
+
 Game of Two Stacks
-https://www.hackerrank.com/challenges/game-of-two-stacks/submissions/code/417286665
+
+def twoStacks(maxSum, a, b):
+    sum_a, sum_b, count_a, count_b, max_count = 0, 0, 0, 0, 0
+
+    while count_a < len(a) and sum_a + a[count_a] <= maxSum:
+        sum_a += a[count_a]
+        count_a += 1
+
+    max_count = count_a
+
+    while count_b < len(b) and count_a >= 0:
+        sum_b += b[count_b]
+        count_b += 1
+        while sum_a + sum_b > maxSum and count_a > 0:
+            count_a -= 1
+            sum_a -= a[count_a]
+        if sum_a + sum_b <= maxSum:
+            max_count = max(max_count, count_a + count_b)
+
+    return max_count
+
+t = int(input())
+for _ in range(t):
+    n, m, maxSum = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    print(twoStacks(maxSum, a, b))
+
