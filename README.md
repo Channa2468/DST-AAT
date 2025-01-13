@@ -5,9 +5,9 @@ Channabasavanna
 
 
 
-Game of two stacks
+1)Game of two stacks
 https://www.hackerrank.com/challenges/game-of-two-stacks/submissions/code/417286658
-Queues using two stacks
+2)Queues using two stacks
 https://www.hackerrank.com/challenges/queue-using-two-stacks/submissions/code/417285991
-Blanced brackets
+3)Blanced brackets
 https://www.hackerrank.com/challenges/balanced-brackets/submissions/code/417289794
